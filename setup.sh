@@ -25,4 +25,8 @@ source $VENV_NAME/bin/activate
 # Install required packages
 pip install -r requirements.txt
 
+chmod +x download_config.sh run_iperf_tcp.sh parse_iperf.sh
+
+./download_config.sh
+
 echo "Setup complete. Your virtual environment '$VENV_NAME' is ready."
