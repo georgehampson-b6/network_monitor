@@ -1,0 +1,3 @@
+pandas
+iperf3
+speedtest-cli
