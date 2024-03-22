@@ -3,25 +3,34 @@
 now=$(date +"%Y-%m-%d_%H-%M-%S")
 
 # Get data from config file
-config_file="/home/george/config.ini"
+config_file="/home/bolt6/network_monitor/config.ini"
 output_dir="iperf_results"
 output_file="$output_dir/iperf_results_$now.txt"
 
 # Get variables for IP & Port
+#!/bin/bash
 
-Location=$(awk -F "=" '/location/{print $2}' "$config_file" | tr -d '[:space:]')
-IP=$(awk -F "=" '/ip/{print $2}' "$config_file" | tr -d '[:space:]')
-Port=$(awk -F "=" '/port/{print $2}' "$config_file" | tr -d '[:space:]')
-Streams=$(awk -F "=" '/streams/{print $2}' "$config_file" | tr -d '[:space:]')
-Bandwidth=$(awk -F "=" '/bandwidth/{print $2}' "$config_file" | tr -d '[:space:]')
-Time=$(awk -F "=" '/time/{print $2}' "$config_file" | tr -d '[:space:]')
+# Define the location to parse
+location="grand_rapids"
 
-echo "$Location"
-echo "$IP"
-echo "$Port"
-echo "$Streams"
-echo "$Bandwidth"
-echo "$Time"
+# Use awk to parse the data for the specified location
+parsed_data=$(echo "$data" | awk -v location="$location" '/\['location'\]/,/\[' location '\]/')
+
+# Use awk to parse the data
+Location=$(echo "$data" | awk -F' = ' '/location/ {print $2}')
+IP=$(echo "$data" | awk -F' = ' '/ip/ {print $2}')
+Port=$(echo "$data" | awk -F' = ' '/port/ {print $2}')
+Streams=$(echo "$data" | awk -F' = ' '/streams/ {print $2}')
+Bandwidth=$(echo "$data" | awk -F' = ' '/bandwidth/ {print $2}')
+Time=$(echo "$data" | awk -F' = ' '/time/ {print $2}')
+
+# Print the parsed data
+echo "Location: $location"
+echo "IP: $IP"
+echo "Port: $Port"
+echo "Streams: $Streams"
+echo "Bandwidth: $Bandwidth"
+echo "Time: $Time"
 
 # Ping Google DNS 3 times
 ping -c 3 8.8.8.8
@@ -36,4 +45,3 @@ else
 fi
 
 python parse_iperf.py "$output_file" "$Location" "$now"
-python tcp_data_table.py
