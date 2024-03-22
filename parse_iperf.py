@@ -8,10 +8,10 @@ with open(sys.argv[1],'r') as file:
         data = file.read().strip().split('\n')
 
 # Define a regex pattern to match the lines with results
-pattern = re.compile(r'\[\s*(\S+)\]\s+(\d+\.\d+-\d+\.\d+)\s+sec\s+(\d+\.?\d*\sK>
+pattern = re.compile(r'\[\s*(\S+)\]\s+(\d+\.\d+-\d+\.\d+)\s+sec\s+(\d+\.?\d*\sK?M?G?Bytes)\s+(\d+\.?\d*\sK?M?G?bits/sec)(?:\s+(\d+))?\s+(sender|receiver)')
 
 # Prepare lists to hold parsed data
-location, times, stream_ids, intervals, transfers, bandwidths = [], [], [], [],>
+location, times, stream_ids, intervals, transfers, bandwidths = [], [], [], [], [], []
 
 # Parse each line
 for line in data:
@@ -37,4 +37,5 @@ print(df)
 output_file = 'parsed_data.csv'
 df.to_csv(output_file, index=False)
 print(f"DataFrame saved to {output_file}")
+
 
