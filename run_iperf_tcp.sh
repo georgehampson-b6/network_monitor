@@ -4,7 +4,7 @@ now=$(date +"%Y-%m-%d_%H-%M-%S")
 
 # Get data from config file
 config_file="/home/bolt6/network_monitor/config.ini"
-output_dir="iperf_results"
+output_dir="network_monitor/iperf_results"
 output_file="$output_dir/iperf_results_$now.txt"
 
 # Get variables for IP & Port
@@ -44,4 +44,4 @@ else
     echo "Ping failed. Exiting..."
 fi
 
-python parse_iperf.py "$output_file" "$Location" "$now"
+python network_monitor/parse_iperf.py "$output_file" "$Location" "$now"
