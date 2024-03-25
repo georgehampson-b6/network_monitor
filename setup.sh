@@ -4,6 +4,7 @@
 if ! dpkg -s python3-venv >/dev/null 2>&1; then
     echo "Installing python3-venv..."
     sudo apt update
+    sudo apt install traceroute
     sudo apt install python3-venv
 fi
 
@@ -25,8 +26,6 @@ source $VENV_NAME/bin/activate
 # Install required packages
 pip install -r requirements.txt
 
-chmod +x download_config.sh run_iperf_tcp.sh parse_iperf.sh
-
-./download_config.sh
+chmod +x download_config.sh run_iperf_tcp.sh parse_iperf.sh run_traceroute.sh parse_traceroute.py
 
 echo "Setup complete. Your virtual environment '$VENV_NAME' is ready."
