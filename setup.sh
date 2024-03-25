@@ -26,6 +26,6 @@ source $VENV_NAME/bin/activate
 # Install required packages
 pip install -r requirements.txt
 
-chmod +x download_config.sh run_iperf_tcp.sh parse_iperf.sh run_traceroute.sh parse_traceroute.py
+chmod +x download_config.sh run_iperf_tcp.sh parse_iperf.sh run_traceroute.sh parse_traceroute.py run_speedtest.sh parse_speedtest.py
 
 echo "Setup complete. Your virtual environment '$VENV_NAME' is ready."
