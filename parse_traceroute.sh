@@ -1,4 +1,4 @@
-  GNU nano 7.2                                                         parse_traceroute.py                                                                  import subprocess
+import subprocess
 import re
 import sys
 import pandas as pd
