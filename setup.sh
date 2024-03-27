@@ -13,7 +13,7 @@ VENV_NAME="network_monitor"
 
 # Navigate to your project directory
 cd /home/bolt6/network-monitor
-
+mkdir iperf_results
 # Check if the virtual environment already exists
 if [ ! -d "$VENV_NAME" ]; then
     # Create the virtual environment
