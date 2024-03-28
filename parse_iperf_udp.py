@@ -28,11 +28,15 @@ for line in data:
             'Total Datagrams': total_datagrams,
             'Loss Percentage': loss_percentage if loss_percentage else "0%"  # Default to 0% if not found
         })
-
+seconds = sys.argv[4]
 # Convert the list of dictionaries to a pandas DataFrame
 df = pd.DataFrame(parsed_data)
-# Filter the DataFrame to show only rows with a 30-second interval
-df_30s = df[df['Interval'].str.contains("0.00-30.00")]
+
+# Construct the pattern string
+pattern = f"0.00-{seconds}.00"
+
+# Filter the DataFrame based on the pattern
+df_filtered = df[df['Interval'].str.contains(pattern)]
 
 # Display the filtered DataFrame
-print(df_30s)
+print(df_filtered)
