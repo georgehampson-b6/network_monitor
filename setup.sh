@@ -27,6 +27,6 @@ source $VENV_NAME/bin/activate
 pip install -r requirements.txt
 sudo apt install iperf3
 sudo apt install traceroute
-chmod +x download_config.sh run_iperf_tcp.sh parse_iperf.sh run_traceroute.sh run_speedtest.py
+chmod +x download_config.sh run_iperf_tcp.sh parse_iperf.sh run_traceroute.sh run_speedtest.py run_iperf_udp.sh
 
 echo "Setup complete. Your virtual environment '$VENV_NAME' is ready."
