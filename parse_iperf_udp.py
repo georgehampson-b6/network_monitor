@@ -39,4 +39,4 @@ pattern = f"0.00-{seconds}.00"
 df_filtered = df[df['Interval'].str.contains(pattern)]
 
 # Display the filtered DataFrame
-print(df_filtered)
+print(df_filtered))
