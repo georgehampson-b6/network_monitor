@@ -1,12 +1,12 @@
 #!/bin/bash
 
 now=$(date +"%Y-%m-%d_%H-%M-%S")
-read -p "Enter location: " location
-read -p "Enter IP address: " ip
+read -p "Enter Namespace: " location
+read -p "Enter externalDNS: " ip
 read -p "Enter Port number: " port
 read -p "Enter No. of Cams: " streams
 read -p "Enter Bandwidth MB/s: " bandwidth
-read -p "Enter length of test sec: " seconds
+read -p "Enter Length of test sec: " seconds
 
 # Get data from config file
 config_file="network_monitor/config.ini"
