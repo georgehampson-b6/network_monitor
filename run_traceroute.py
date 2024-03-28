@@ -11,7 +11,7 @@ def run_traceroute_and_collect_output(target_ip):
     with subprocess.Popen(['traceroute', target_ip], stdout=subprocess.PIPE, text=True, bufsize=1, universal_newlines=True) as proc:
         if proc.stdout is not None:
             for line in proc.stdout:
-                sys.stdout.write('---')  # Print - for each hop
+                sys.stdout.write('-')  # Print - for each hop
                 sys.stdout.flush()  # Ensure it's displayed immediately
                 output_lines.append(line.strip())
             print()  # Newline after completion
@@ -39,7 +39,7 @@ def parse_traceroute(output_lines):
     return df
 
 # Input from the user for traceroute target
-target_ip = input("Enter the IP address or hostname for traceroute: ")
+target_ip = input("Enter the externalDNS for traceroute: ")
 
 # Run traceroute, collect output, and parse into DataFrame
 traceroute_output_lines = run_traceroute_and_collect_output(target_ip)
