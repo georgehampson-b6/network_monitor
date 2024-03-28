@@ -41,4 +41,4 @@ else
     echo "Ping failed. Exiting..."
 fi
 
-python network_monitor/parse_iperf_udp.py "$output_file" "$location" "$now"
+python network_monitor/parse_iperf_udp.py "$output_file" "$location" "$now" "$seconds"
